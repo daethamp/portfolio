@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daetha M P | Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #0b0f13;
+      --accent1: #38f2af;
+      --accent2: #f64fbf;
+      --muted: #d3d3d3;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: #f5f5f5;
+      font-family: "Poppins", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3 { font-weight: 600; }
+
+    .navbar {
+      background-color: rgba(11, 15, 19, 0.95);
+      box-shadow: 0 0 10px rgba(56, 242, 175, 0.1);
+    }
+
+    .navbar-brand {
+      color: var(--accent1) !important;
+      font-weight: 600;
+    }
+
+    .nav-link {
+      color: #f5f5f5 !important;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover { color: var(--accent1) !important; }
+
+    .btn-outline-light {
+      border-color: var(--accent1);
+      color: var(--accent1);
+    }
+
+    .btn-outline-light:hover {
+      background-color: var(--accent1);
+      color: var(--bg);
+    }
+
+    .btn-contact {
+      background-color: var(--accent1);
+      color: var(--bg);
+      border: none;
+      font-weight: 500;
+      padding: 10px 25px;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-contact:hover {
+      background-color: #2bd496;
+      transform: translateY(-3px);
+      box-shadow: 0 0 10px rgba(56, 242, 175, 0.6);
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    /* Hero Section */
+    .glowing-img {
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(56, 242, 175, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      max-width: 320px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .glowing-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(56, 242, 175, 0.7);
+    }
+
+    .animated-roles {
+      height: 28px;
+      overflow: hidden;
+      position: relative;
+      font-weight: 500;
+      color: var(--accent1);
+    }
+
+    .animated-roles span {
+      display: block;
+      position: absolute;
+      width: 100%;
+      opacity: 0;
+      animation: fadeRoles 9s linear infinite;
+    }
+
+    .animated-roles span:nth-child(1) { animation-delay: 0s; }
+    .animated-roles span:nth-child(2) { animation-delay: 3s; }
+    .animated-roles span:nth-child(3) { animation-delay: 6s; }
+
+    @keyframes fadeRoles {
+      0%, 10% { opacity: 1; transform: translateY(0); }
+      30% { opacity: 0; transform: translateY(-10px); }
+      100% { opacity: 0; }
+    }
+
+    /* Vertical tech icons */
+    .tech-icons {
+      position: absolute;
+      right: -70px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tech-icons img {
+      width: 40px;
+      filter: drop-shadow(0 0 6px rgba(56, 242, 175, 0.3));
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .tech-icons img:hover {
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 10px rgba(56, 242, 175, 0.8));
+    }
+
+    @media (max-width: 768px) {
+      .tech-icons {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 15px;
+      }
+    }
+
+    /* Stylish Headings */
+    section h3 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      position: relative;
+      display: inline-block;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 25px;
+    }
+
+    section h3::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      margin-top: 8px;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      border-radius: 2px;
+      box-shadow: 0 0 10px rgba(56, 242, 175, 0.6);
+    }
+
+    /* Projects */
+    .card-project {
+      background-color: #161b22;
+      border-radius: 10px;
+      border: none;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-project:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 20px rgba(56, 242, 175, 0.3);
+    }
+
+    .card-project img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+   .thankyou {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-top: 25px;
+  letter-spacing: 1px;
+  color: #f64fbf;
+  text-shadow: 0 0 10px rgba(246, 79, 191, 0.6);
+  animation: glowPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+  from { text-shadow: 0 0 10px rgba(246, 79, 191, 0.6); }
+  to { text-shadow: 0 0 20px rgba(246, 79, 191, 0.9); }
+}
+    #contact p {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-top: 15px;
+}
+#foundation h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #38f2af, #f64fbf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Daetha M P</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#foundation">Foundation</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Work</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="text-center container hero-section" style="margin-top: 120px; position: relative;">
+    <div class="row align-items-center">
+      <!-- Left Side -->
+      <div class="col-md-6 text-start">
+        <h1>Hi, I'm <span class="highlight">Daetha M P</span></h1>
+        <div class="animated-roles mt-2 mb-3">
+          <span>Python Full Stack Developer</span>
+          <span>Django Backend Enthusiast</span>
+          <span>Creative Web Designer</span>
+        </div>
+        <p class="text-secondary mt-3">
+          Building dynamic, responsive, and data-driven web applications using Python and modern frameworks.
+        </p>
+        <a href="Daetha_Resume.pdf" class="btn btn-outline-light mt-3" download>
+          <i class="bi bi-download"></i> Resume
+        </a>
+        <div class="social-icons mt-4">
+          <a href="https://www.linkedin.com/in/daetha-m-p" target="_blank"><i class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/daethamp" target="_blank"><i class="bi bi-github"></i></a>
+          <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+
+      <!-- Right Side -->
+      <div class="col-md-6 text-center mt-4 mt-md-0 position-relative d-flex justify-content-center">
+        <img src="photo.jpg" alt="Daetha M P" class="img-fluid glowing-img" />
+        <div class="tech-icons">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="container text-center">
+    <h3 class="mb-4 text-start">About Me</h3>
+    <p class="lead text-start">
+      I’m a Python Full Stack Developer intern passionate about building seamless, data-driven web applications that blend powerful backend logic with engaging user interfaces. Skilled in Python, Django, ReactJS, and MySQL, I enjoy transforming ideas into practical digital experiences.
+    </p>
+    <div class="about-img mt-4">
+      <img src="coding.webp" alt="Coding Image" class="img-fluid w-100" style="height:350px; object-fit:cover;">
+    </div>
+  </section>
+
+  <!-- Foundation -->
+  <section id="foundation" class="container">
+    <h3 class="text-start mb-4">Foundation</h3>
+    <div class="row">
+      <div class="col-md-6">
+        <h5 class="highlight">Education</h5>
+        <p>B.Tech Computer Science<br>APJ Abdul Kalam Technical University<br>(2021–2025)</p>
+      </div>
+      <div class="col-md-6">
+        <h5 class="highlight">Skills</h5>
+        <p>Languages: Python, Django, HTML/CSS, Bootstrap, JavaScript<br>
+           Tools: VS Code, Microsoft Word, PowerPoint</p>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Projects -->
+  <section id="projects" class="container">
+    <h3 class="text-start mb-4">My Best Work</h3>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card card-project h-100">
+          <img src="crisiscompass.png" alt="Crisis Compass">
+          <div class="p-3">
+            <h5>Crisis Compass</h5>
+            <p class="text-secondary mb-0">Disaster relief coordination web platform</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-project h-100">
+          <img src="smarthelmet.jpg" alt="Smart Helmet">
+          <div class="p-3">
+            <h5>Smart Helmet</h5>
+            <p class="text-secondary mb-0">Real-time accident detection device</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-project h-100">
+          <img src="neaty.png" alt="Neaty Website">
+          <div class="p-3">
+            <h5>Neaty Website</h5>
+            <p class="text-secondary mb-0">Modern responsive multipage website template</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+
+<section id="contact" class="container text-center">
+  <h3 class="mb-4">Work with Me</h3><br>
+  <!-- <h5 class="highlight mb-4">Contact Me</h5> -->
+
+ <a href="mailto:daethamp@gmail.com" class="btn-contact">
+  Contact Me <i class="bi bi-arrow-right-circle-fill"></i>
+</a>
+
+
+  <div class="social-icons mt-4">
+    <a href="https://www.linkedin.com/in/daetha-m-p" target="_blank"><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/daethamp" target="_blank"><i class="bi bi-github"></i></a>
+    <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=n55l1xd" target="_blank"><i class="bi bi-instagram"></i></a>
+  </div>
+
+  <!-- ✨ Personal Touch Line -->
+  <p class="mt-4 fst-italic text-secondary">
+    "Always curious. Always learning. Always building."
+  </p>
+
+  <div class="thankyou">Thank you</div>
+</section>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

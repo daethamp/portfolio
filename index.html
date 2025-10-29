@@ -219,6 +219,35 @@
   margin-bottom: 10px;
 }
 
+.glowing-img {
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(56, 242, 175, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  filter: grayscale(100%) contrast(1.1);
+}
+
+.glowing-img:hover {
+  transform: scale(1.05);
+  filter: grayscale(0%) contrast(1.1);
+  box-shadow: 0 0 40px rgba(56, 242, 175, 0.7);
+}
+
+.card-project h5 {
+  color: #38f2af; /* neon accent for project titles */
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.card-project p {
+  color: #d1d1d1; /* lighter gray for readability */
+  font-size: 0.95rem;
+}
+.card-project:hover h5 {
+  color: #f64fbf; /* switch to pink accent on hover */
+  transition: color 0.3s ease;
+}
+
+
   </style>
 </head>
 
